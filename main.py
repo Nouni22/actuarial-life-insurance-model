@@ -67,3 +67,29 @@ def compute_irr(cashflows):
 portfolio["irr"] = portfolio["cashflows"].apply(compute_irr)
 
 print(portfolio[["irr"]].head())
+
+print("IRR moyen :", portfolio["irr"].mean())  #vision globale
+
+
+#Simulation choc de taux
+
+def shock_npv(row, shock):
+    new_rate = row["interest_rate"] + shock
+    return npv(row["cashflows"], new_rate)
+
+portfolio["npv_up"] = portfolio.apply(lambda r: shock_npv(r, 0.01), axis=1)
+portfolio["npv_down"] = portfolio.apply(lambda r: shock_npv(r, -0.01), axis=1)
+
+print(portfolio[["npv", "npv_up", "npv_down"]].head())
+
+#Calcul des pertes
+portfolio["loss_up"] = portfolio["npv"] - portfolio["npv_up"]
+portfolio["loss_down"] = portfolio["npv"] - portfolio["npv_down"]
+
+#Calcul SCR
+SCR = max(
+    portfolio["loss_up"].mean(),
+    portfolio["loss_down"].mean()
+)
+
+print("SCR simplifié :", SCR)
