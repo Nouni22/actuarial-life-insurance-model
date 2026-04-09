@@ -1,5 +1,6 @@
 import pandas as pd
 import numpy as np
+import numpy_financial as npf
 
 np.random.seed(42)
 
@@ -51,3 +52,18 @@ portfolio["npv"] = portfolio.apply(
 )
 
 print(portfolio[["npv"]].head())
+
+
+#Fonction IRR
+
+def compute_irr(cashflows):
+    try:
+        return npf.irr(cashflows)
+    except:
+        return None
+    
+#Calcul IRR
+
+portfolio["irr"] = portfolio["cashflows"].apply(compute_irr)
+
+print(portfolio[["irr"]].head())
