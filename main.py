@@ -36,3 +36,18 @@ def simulate_cashflows(row):
 portfolio["cashflows"] = portfolio.apply(simulate_cashflows, axis=1)
 
 print(portfolio[["age", "cashflows"]].head())
+
+
+
+#Ajouter la fonction NPV
+
+def npv(cashflows, rate):
+    return sum(cf / (1 + rate)**t for t, cf in enumerate(cashflows))
+
+#Calculer la valeur du portefeuille
+portfolio["npv"] = portfolio.apply(
+    lambda row: npv(row["cashflows"], row["interest_rate"]),
+    axis=1
+)
+
+print(portfolio[["npv"]].head())
