@@ -13,11 +13,15 @@
 import pandas as pd
 import numpy as np
 
-print("Projet actuariat lancé 🚀")
+np.random.seed(42)
 
-df = pd.DataFrame({
-    "age": [25, 40, 60],
-    "prime": [10000, 20000, 15000]
+n = 100
+
+portfolio = pd.DataFrame({
+    "age": np.random.randint(25, 70, n),
+    "prime": np.random.uniform(5000, 50000, n),
+    "duration": np.random.randint(5, 20, n),
+    "interest_rate": np.random.uniform(0.01, 0.04, n)
 })
 
-print(df)
+print(portfolio.head())
