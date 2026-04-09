@@ -1,90 +1,57 @@
 # Actuarial Life Insurance Portfolio Modeling
 
-## Objective
-This project aims to simulate, value, and analyze a life insurance portfolio using actuarial and financial techniques.  
-It demonstrates core actuarial concepts such as cash flow projection, portfolio valuation, profitability analysis, and risk assessment under Solvency II framework.
+## Project Overview
+
+This project was developed to explore actuarial modeling concepts applied to a life insurance portfolio.  
+With a background in ALM and financial risk, I wanted to better understand how insurance portfolios are valued, how profitability is assessed, and how risks are quantified.
 
 
 
-##  Project Overview
+## What I built
 
-The model simulates a portfolio of policyholders and evaluates:
+I simulated a portfolio of policyholders and implemented:
 
-- Future cash flows (premiums, benefits, surrenders)
+- Cash flow projections (premiums, benefits, surrenders)
 - Portfolio valuation using Net Present Value (NPV)
-- Profitability through Internal Rate of Return (IRR)
-- Interest rate risk via stress scenarios
-- Simplified Solvency Capital Requirement (SCR)
-
-
-##  Methodology
-
-### 1. Portfolio Simulation
-- Generation of synthetic policyholder data (age, premium, duration, interest rate)
-
-### 2. Cash Flow Projection
-- Premium inflows
-- Benefit outflows
-- Random surrender behavior
-
-### 3. Valuation (NPV)
-- Discounting future cash flows using interest rates
-
-### 4. Profitability Analysis (IRR)
-- Measurement of portfolio performance
-
-### 5. Risk Analysis
-- Interest rate shocks (+1% / -1%)
-- Impact assessment on portfolio value
-
-### 6. SCR Calculation (Simplified)
-- Estimation of capital required to absorb interest rate risk
+- Profitability analysis with Internal Rate of Return (IRR)
+- Interest rate stress scenarios (+/- 1%)
+- A simplified Solvency II SCR approach
 
 
 
-## Tools & Technologies
+## Key concepts
 
-- Python
-- Pandas / NumPy
-- NumPy Financial
+- Time value of money and discounting
+- Insurance cash flow modeling
+- Profitability metrics (IRR)
+- Sensitivity to interest rate changes
+- Risk estimation under stress scenarios
 
----
 
-##  Key Features
 
-Actuarial cash flow modeling  
-Financial valuation (NPV)  
-Profitability analysis (IRR)  
-Risk sensitivity analysis  
-Simplified Solvency II SCR  
+## Tools
+
+Python (Pandas, NumPy, NumPy Financial)
+
+
+
+## Why this project
+
+Coming from an ALM and treasury support background, I have worked on liquidity and interest rate indicators.  
+This project allowed me to move closer to actuarial topics by building a model from scratch and understanding the link between data, modeling, and risk.
+
+
+
+## Next steps
+
+- Improve surrender modeling (behavioral model)
+- Segment the portfolio
+- Add more realistic assumptions
+- Explore stochastic simulations
 
 ---
 
-##  Results
+## About me
 
-The model provides:
-- Portfolio valuation
-- Profitability metrics
-- Risk exposure under stress scenarios
-
-
-## Key Learnings
-
-- Understanding of actuarial modeling techniques  
-- Application of financial mathematics to insurance  
-- Introduction to Solvency II risk framework  
-- Data analysis and model implementation in Python  
-
-
-##  Future Improvements
-
-- Policyholder segmentation  
-- Advanced surrender modeling (logistic regression)  
-- Monte Carlo simulations  
-- Integration of real actuarial datasets  
-
-
-##  Author
-
-Aurore NOUNI  
-Aspiring Actuarial Analyst | ALM & Risk Background  
+Engineer in IT for Finance with 4+ years of experience in ALM, risk and treasury environments.  
+Currently transitioning toward actuarial and statistical modeling. 
