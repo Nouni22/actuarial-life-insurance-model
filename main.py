@@ -1,15 +1,3 @@
- #print("J'apprends Python!")
-
-#print(17 + 35 * 2) 
-
-#nom = "NOUNI"
-#prenom = "Aurore"
-#age = 28
-#print(f"Je m'appelle {prenom} et j'ai {age} ans")
-#age = age + 10
-#print(f"Je m'appelle {prenom} et j'ai {age} ans maintenant")
-
-
 import pandas as pd
 import numpy as np
 
@@ -25,3 +13,26 @@ portfolio = pd.DataFrame({
 })
 
 print(portfolio.head())
+
+
+def simulate_cashflows(row):
+    cashflows = []
+    
+    for t in range(int(row["duration"])):
+        
+        # Prime payée au début
+        premium = row["prime"] if t == 0 else 0
+        
+        # Prestations (ex: coût assurance)
+        benefit = -row["prime"] * 0.02 * t
+        
+        # Rachat aléatoire (10% de probabilité)
+        surrender = -row["prime"] * 0.5 if np.random.rand() < 0.1 else 0
+        
+        cashflows.append(premium + benefit + surrender)
+    
+    return cashflows
+
+portfolio["cashflows"] = portfolio.apply(simulate_cashflows, axis=1)
+
+print(portfolio[["age", "cashflows"]].head())
